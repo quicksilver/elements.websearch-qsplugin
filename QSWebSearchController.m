@@ -110,7 +110,7 @@
     [form appendString:@"</body></html>"];
     NSString *postFile=[NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"QSPOST-%@.html",[NSString uniqueString]]]; 
 	// ***warning   * delete these files
-    [form writeToFile:postFile atomically:NO];
+    [form writeToFile:postFile atomically:NO encoding:NSUTF8StringEncoding error:nil];
     [[NSWorkspace sharedWorkspace]openFile:postFile];
 }
 

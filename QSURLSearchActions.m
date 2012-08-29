@@ -1,7 +1,6 @@
 #import "QSURLSearchActions.h"
 #import "QSWebSearchController.h"
 
-# define kURLSearchAction @"QSURLSearchAction"
 # define kURLSearchForAction @"QSURLSearchForAction"
 # define kURLSearchForAndReturnAction @"QSURLSearchForAndReturnAction"
 # define kURLFindWithAction @"QSURLFindWithAction"
@@ -12,7 +11,7 @@
 	NSURL *appURL = nil; 
 	OSStatus err; 
 	err = LSGetApplicationForURL((CFURLRef)[NSURL URLWithString: @"http:"],kLSRolesAll, NULL, (CFURLRef *)&appURL); 
-	if (err != noErr) NSLog(@"error %ld", err); 
+	if (err != noErr) NSLog(@"error %ld", (long)err);
 	// else NSLog(@"%@", appURL); 
 	
 	return [appURL path];
@@ -20,24 +19,9 @@
 }
 
 - (NSArray *)validIndirectObjectsForAction:(NSString *)action directObject:(QSObject *)dObject{
-	//  NSLog(@"request");
-	// if it's a 'find with...' action, only return valid URLs with *** in them
+	// if it's a 'find with...' action, only return search URLs
 	if ([action isEqualToString:kURLFindWithAction]) {
-		// Get a list of all 
-		NSMutableArray *urlObjects=[QSLib scoredArrayForString:nil inSet:[QSLib arrayForType:QSURLType]];
-		NSMutableArray *objects=[NSMutableArray arrayWithCapacity:1];
-		for(QSObject *individual in urlObjects){
-			// For some reason QSLib returns folders as QSURLType. This checks to make sure they're URLs
-			NSString *urlString=[[individual arrayForType:QSURLType]lastObject];
-			if(urlString){
-			NSURL *url=[NSURL URLWithString:[urlString URLEncoding]];
-			NSString *query=[url absoluteString];
-			if ([query rangeOfString:QUERY_KEY].location!=NSNotFound){
-				[objects addObject:individual];
-			}
-			}
-		}
-		return [NSArray arrayWithObjects:[NSNull null],objects,nil];
+		return [NSArray arrayWithObjects:[NSNull null], [QSLib arrayForType:QSSearchURLType], nil];
 	}
 	// if it's a 'search for...' action, return a text bot for text
 	else if ([action isEqualToString:kURLSearchForAction] || [action isEqualToString:kURLSearchForAndReturnAction]){
@@ -50,20 +34,19 @@
 }
 
 - (NSArray *)validActionsForDirectObject:(QSObject *)dObject indirectObject:(QSObject *)iObject{
-	NSString *urlString=[[dObject arrayForType:QSURLType] lastObject];
+	NSString *urlString=[[dObject arrayForType:QSSearchURLType] lastObject];
 	
 	NSMutableArray *newActions=[NSMutableArray arrayWithCapacity:1];
     NSString *query = nil;
 	if (urlString){
 		NSURL *url=[NSURL URLWithString:[urlString URLEncoding]];
 		query =[url absoluteString];
-	} 
-    if (query && [query rangeOfString:QUERY_KEY].location!=NSNotFound) {
-        [newActions addObject:kURLSearchAction];
+	}
+    if (query) {
         [newActions addObject:kURLSearchForAction];
         [newActions addObject:kURLSearchForAndReturnAction];
     }
-    else if ([dObject containsType:QSTextType] && ![dObject containsType:QSFilePathType]) {   
+	else if ([dObject containsType:QSTextType] && ![dObject containsType:QSFilePathType]) {
 		[newActions addObject:kURLFindWithAction];
 	}
 	
@@ -79,13 +62,13 @@
 	
 	// get an NSURL
 
-	[[QSWebSearchController sharedInstance] searchURL:[dObject objectForType:QSURLType]];
+	[[QSWebSearchController sharedInstance] searchURL:[dObject objectForType:QSSearchURLType]];
 	return nil;
 }
 // The encoding of the object is returning null. This will break in a future release of OS X
 - (QSObject *)doURLSearchForAction:(QSObject *)dObject withString:(QSObject *)iObject{
 	
-	for(NSString * urlString in [dObject arrayForType:QSURLType]){
+	for(NSString * urlString in [dObject arrayForType:QSSearchURLType]){
 		CFStringEncoding encoding=[[dObject objectForMeta:kQSStringEncoding]intValue];
 		// Make sure characters such as | are escaped
 		if(!encoding)
@@ -97,7 +80,7 @@
 	return nil;
 }
 - (QSObject *)doURLSearchForAndReturnAction:(QSObject *)dObject withString:(QSObject *)iObject{
-	for(NSString * urlString in [dObject arrayForType:QSURLType]){
+	for(NSString * urlString in [dObject arrayForType:QSSearchURLType]){
 		CFStringEncoding encoding=[[dObject objectForMeta:kQSStringEncoding]intValue];
 		if(!encoding)
 			encoding = NSUTF8StringEncoding;
@@ -127,15 +110,11 @@
 		//NSLog(@" %@ %@",type,parser);
 		
 		[QSTasks updateTask:@"DownloadPage" status:@"Downloading Page" progress:0];
-		NSArray *children=[parser objectsFromURL:[NSURL URLWithString:query] withSettings:nil];
+		NSMutableArray *children = [[parser objectsFromURL:[NSURL URLWithString:query] withSettings:nil] mutableCopy];
 		[QSTasks removeTask:@"DownloadPage"];
 		
-		[[QSReg preferredCommandInterface]showArray:children];
-		
-		
-		
+		[[QSReg preferredCommandInterface] showArray:children];
 	}
-	
 
 	return nil;
 }

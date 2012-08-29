@@ -47,7 +47,7 @@
 			<key>reverseArguments</key>
 			<string>YES</string>
 			<key>validatesObjects</key>
-			<string>YES</string>
+			<true/>
 		</dict>
 		<key>QSURLSearchForAction</key>
 		<dict>
@@ -70,7 +70,7 @@
 			<key>rankModification</key>
 			<string>4.000000</string>
 			<key>validatesObjects</key>
-			<string>YES</string>
+			<true/>
 		</dict>
 		<key>QSURLSearchForAndReturnAction</key>
 		<dict>
@@ -91,7 +91,7 @@
 			<key>name</key>
 			<string>Show Results for Search...</string>
 			<key>validatesObjects</key>
-			<string>YES</string>
+			<true/>
 		</dict>
 	</dict>
 	<key>QSObjectSources</key>
