@@ -34,6 +34,10 @@
 			<array>
 				<string>NSStringPboardType</string>
 			</array>
+			<key>indirectTypes</key>
+			<array>
+				<string>qs.url.search</string>
+			</array>
 			<key>icon</key>
 			<string>Find</string>
 			<key>name</key>
@@ -55,7 +59,7 @@
 			<string>Search for text on a web site</string>
 			<key>directTypes</key>
 			<array>
-				<string>Apple URL pasteboard type</string>
+				<string>qs.url.search</string>
 			</array>
 			<key>icon</key>
 			<string>Find</string>
@@ -76,7 +80,7 @@
 			<string>Returns the results of a query directly to the command window</string>
 			<key>directTypes</key>
 			<array>
-				<string>Apple URL pasteboard type</string>
+				<string>qs.url.search</string>
 			</array>
 			<key>enabled</key>
 			<string>NO</string>
