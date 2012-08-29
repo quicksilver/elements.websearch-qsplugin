@@ -1,6 +1,3 @@
-
-
-#import "QSWebSearchPlugInDefines.h"
 #import "QSURLSearchActions.h"
 #import "QSWebSearchController.h"
 

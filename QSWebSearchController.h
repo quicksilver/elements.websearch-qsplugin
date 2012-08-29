@@ -1,8 +1,3 @@
-
-
-#import <AppKit/AppKit.h>
-
-
 @interface QSWebSearchController : NSWindowController {
     IBOutlet NSTextField *webSearchField;
     IBOutlet NSBox *searchBox;
