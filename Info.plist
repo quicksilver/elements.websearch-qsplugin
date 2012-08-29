@@ -112,10 +112,8 @@
 		<string>Allows searching the web</string>
 		<key>icon</key>
 		<string>Find</string>
-		<key>relatedBundles </key>
-		<array>
-			<string>com.apple.Safari</string>
-		</array>
+		<key>recommended</key>
+		<true/>
 	</dict>
 	<key>QSPresetAdditions</key>
 	<array>
