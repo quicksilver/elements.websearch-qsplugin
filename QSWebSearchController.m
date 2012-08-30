@@ -41,6 +41,9 @@
 	
 	// escape URL, but not # or %
 	NSString *query = [searchURL URLEncoding];
+	
+	// replace 'LINE SEPARATOR' 0x2028 with 'LINE FEED (LF)' 0x0a
+	string = [string stringByReplacingOccurrencesOfString:[NSString stringWithUTF8String:"\u2028"] withString:@"\n"];
 		
 	// Escape everything in the query string
     NSString *searchTerm = (NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,
