@@ -43,7 +43,7 @@
 			<key>icon</key>
 			<string>Find</string>
 			<key>name</key>
-			<string>Find With...</string>
+			<string>Find With…</string>
 			<key>reverseArguments</key>
 			<string>YES</string>
 			<key>validatesObjects</key>
@@ -66,7 +66,7 @@
 			<key>icon</key>
 			<string>Find</string>
 			<key>name</key>
-			<string>Search For...</string>
+			<string>Search For…</string>
 			<key>rankModification</key>
 			<string>4.000000</string>
 			<key>validatesObjects</key>
@@ -89,7 +89,7 @@
 			<key>icon</key>
 			<string>Find</string>
 			<key>name</key>
-			<string>Show Results for Search...</string>
+			<string>Show Results for Search…</string>
 			<key>validatesObjects</key>
 			<true/>
 		</dict>
