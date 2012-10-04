@@ -21,7 +21,7 @@
 - (NSArray *)validIndirectObjectsForAction:(NSString *)action directObject:(QSObject *)dObject{
 	// if it's a 'find with...' action, only return search URLs
 	if ([action isEqualToString:kURLFindWithAction]) {
-		return [NSArray arrayWithObjects:[NSNull null], [QSLib arrayForType:QSSearchURLType], nil];
+		return [QSLib scoredArrayForString:nil inSet:[QSLib arrayForType:QSSearchURLType]];
 	}
 	// if it's a 'search for...' action, return a text bot for text
 	else if ([action isEqualToString:kURLSearchForAction] || [action isEqualToString:kURLSearchForAndReturnAction]){
