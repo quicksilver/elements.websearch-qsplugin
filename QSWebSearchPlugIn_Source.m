@@ -8,7 +8,6 @@
 //
 
 #import "QSWebSearchPlugIn_Source.h"
-#import <QSCore/QSResourceManager.h>
 
 @implementation QSWebSearchSource
 

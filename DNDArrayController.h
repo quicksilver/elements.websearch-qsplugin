@@ -1,7 +1,3 @@
-
-#import <Cocoa/Cocoa.h>
-
-
 @interface DNDArrayController : NSArrayController
 {
     IBOutlet NSTableView *tableView;

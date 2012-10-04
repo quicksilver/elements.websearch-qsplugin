@@ -6,7 +6,6 @@
 //  Copyright __MyCompanyName__ 2004. All rights reserved.
 //
 
-#import "QSWebSearchPlugInDefines.h"
 #import "QSWebSearchPlugIn_Source.h"
 
 @interface QSWebSearchSource : QSObjectSource{
