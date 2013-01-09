@@ -74,17 +74,12 @@
 		query = [query stringByReplacing:@"qss-https" with:@"https"];  
 		[workspace openURL:[NSURL URLWithString:query]];
 	}
-	else if ([[url scheme] isEqualToString:@"qssp-http"]){
-		//  query=[query stringByReplacing:OLD_QUERY_KEY with:searchTerm]; // allow old query for now
-		[self openPOSTURL:[NSURL URLWithString:[query stringByReplacing:@"qssp-http" with:@"http"]]];  
+	else if ([[NSArray arrayWithObjects:@"qssp-http",@"http-post", nil] containsObject:[url scheme]]){
+		[self openPOSTURL:[NSURL URLWithString:[query stringByReplacing:[url scheme] with:@"http"]]];
 		return;
 	}
-	else if ([[url scheme] isEqualToString:@"qssp-https"]) {
-		[self openPOSTURL:[NSURL URLWithString:[query stringByReplacing:@"qssp-https" with:@"https"]]];
-		return;
-	}
-	else if ([[url scheme] isEqualToString:@"http-post"]){
-		[self openPOSTURL:[NSURL URLWithString:[query stringByReplacing:@"http-post" with:@"http"]]];  
+	else if ([[NSArray arrayWithObjects:@"qssp-https",@"https-post",nil] containsObject:[url scheme]]) {
+		[self openPOSTURL:[NSURL URLWithString:[query stringByReplacing:[url scheme] with:@"https"]]];
 		return;
 	}
 	else{
@@ -104,17 +99,34 @@
     [form appendFormat:@"<form name=\"qsform\" action=\"%@\" method=\"POST\">",[[[searchURL absoluteString]componentsSeparatedByString:@"?"]objectAtIndex:0]];
     NSString *component;
     NSEnumerator *queryEnumerator=[[[searchURL query]componentsSeparatedByString:@"&"]objectEnumerator];
-    while (component = [queryEnumerator nextObject]){
-        NSArray *nameAndValue=[component componentsSeparatedByString:@"="];
-        [form appendFormat:@"<input type=hidden name=\"%@\" value=\"%@\">",
-            [[[nameAndValue objectAtIndex:0]URLDecoding]stringByReplacing:@"+" with:@" "],
-            [[[nameAndValue objectAtIndex:1]URLDecoding]stringByReplacing:@"+" with:@" "]];
+    @try {
+        while (component = [queryEnumerator nextObject]){
+            NSArray *nameAndValue=[component componentsSeparatedByString:@"="];
+            [form appendFormat:@"<input type=\"hidden\" name=\"%@\" value=\"%@\" />",
+             [[[nameAndValue objectAtIndex:0] URLDecoding ] stringByReplacing:@"+" with:@" "],
+             [[[nameAndValue objectAtIndex:1] URLDecoding ] stringByReplacing:@"+" with:@" "]];
+        }
     }
-    [form appendString:@"</body></html>"];
+    @catch (NSException *exception) {
+        QSShowAppNotifWithAttributes(@"QSWebSearchPlugin", NSLocalizedStringFromTableInBundle(@"Post URL Error",nil,[NSBundle bundleForClass:[self class]],@"Title for error on creating POST search"),NSLocalizedStringFromTableInBundle(@"Could not parse POST URL. See Console.app for more info.", nil, [NSBundle bundleForClass:[self class]], @"message for error on creating POST search"));
+        NSLog(@"%@",exception);
+        return;
+    }
+
+    [form appendString:@"</form></body></html>"];
     NSString *postFile=[NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"QSPOST-%@.html",[NSString uniqueString]]]; 
-	// ***warning   * delete these files
+
     [form writeToFile:postFile atomically:NO encoding:NSUTF8StringEncoding error:nil];
-    [[NSWorkspace sharedWorkspace]openFile:postFile];
+    [[NSWorkspace sharedWorkspace] openFile:postFile];
+    int64_t delayInSeconds = 1.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        NSError *err= nil;
+        if (![[NSFileManager defaultManager] removeItemAtPath:postFile error:&err]) {
+            NSLog(@"Error removing %@, %@",postFile, err);
+        }
+    });
+
 }
 
 - (IBAction)submitWebSearch:(id)sender {

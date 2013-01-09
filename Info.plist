@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
+	<key>CFBundleDisplayName</key>
+	<string>Web Search</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -12,14 +14,12 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>Web Search Plugin</string>
-	<key>CFBundleDisplayName</key>
-	<string>Web Search</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.6.0</string>
+	<string>2.7.0</string>
 	<key>CFBundleVersion</key>
-	<string>240</string>
+	<string>243</string>
 	<key>NSPrincipalClass</key>
 	<string>QSWebSearchPlugIn</string>
 	<key>QSActions</key>
@@ -36,12 +36,12 @@
 			<array>
 				<string>NSStringPboardType</string>
 			</array>
+			<key>icon</key>
+			<string>Find</string>
 			<key>indirectTypes</key>
 			<array>
 				<string>qs.url.search</string>
 			</array>
-			<key>icon</key>
-			<string>Find</string>
 			<key>name</key>
 			<string>Find With…</string>
 			<key>reverseArguments</key>
@@ -110,6 +110,33 @@
 		</array>
 		<key>description</key>
 		<string>Allows searching the web</string>
+		<key>extendedDescription</key>
+		<string>&lt;h2&gt;Web Search Plugin&lt;/h2&gt;
+&lt;p&gt;The Web Search Plugin for Quicksilver allows you to search websites from within Quicksilver. By default, the Web Search Plugin includes a list of the most commonly used websites for searching (e.g. Google, YouTube, Wikipedia). You can also specify your own websites to search (see 'Custom Web Searches' below).&lt;/p&gt;
+&lt;h3&gt;Actions&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Find With...&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The 'Find With...' action takes text in Quicksilver's 1st pane, and a web search in the 3rd pane. An example could be:  &lt;br&gt;
+'Steve Jobs' ⇥ Find With... ⇥ Google.com&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Search For...&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;'Search For...' works in a similar way to the 'Find With...' action but in reverse; it takes a web search in the 1st pane and text in Quicksilver's 3rd pane. E.g.  &lt;br&gt;
+Google.com ⇥ Search For... ⇥ 'Steve Jobs'&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Show Results For Search...&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This action works in exactly the same way as the 'Search For...' action, but returns the results to Quicksilver's 1st pane in the form of links on the results page. This action is an &lt;a href="http://qsapp.com/wiki/Alternate_Actions"&gt;alternate action&lt;/a&gt; to the 'Search For...' action.&lt;/p&gt;
+&lt;h3&gt;Default Web Searches (Catalog)&lt;/h3&gt;
+&lt;p&gt;The plugin contains two default web search lists (simple and advanced). The simple list is enabled by default. To view the entries in each list, go to the &lt;a href="qs://preferences#QSCatalogPrefPane"&gt;Catalog Preferences&lt;/a&gt; and click the 'Plugins' tab. You should see two entries: 'Web Searches (Full List)' and 'Web Searches (Simple)'. Enable/disable them, and expand the sidebar to see their contents.&lt;/p&gt;
+&lt;p&gt;To request the addition of a new website to either list, post on the &lt;a href="http://groups.google.com/group/blacktree-quicksilver/topics?gvc=2"&gt;support forums&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Custom Web Searches (Catalog)&lt;/h3&gt;
+&lt;p&gt;To create custom web searches, open the &lt;a href="qs://preferences#QSCatalogPrefPane"&gt;Catalog Preferences&lt;/a&gt;, and create a new 'Web Search List' catalog entry by clicking the '+' button in the bottom left hand corner of the window.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Typical Search Forms&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The easiest way to create a custom search URL is to search for &lt;code&gt;***&lt;/code&gt; in the website in question. Once you have done this, copy and paste the URL from your browser into a new 'Web Search List' entry.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;POST Search Forms&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Certain websites use POST search forms (instead of GET forms), where the search Query is not present in the URL, but is passed as a POST parameter (viewing the website HTML is required). For these websites, you can create QSS 'POST' URLs.  &lt;br&gt;
+&lt;/p&gt;
+&lt;p&gt;To achieve this, open a custom 'Web Search List', and expand the sidebar by clicking the 'i' button (or pressing ⌘I).  &lt;br&gt;
+From the sidebar, add a new URL, with a prefix of either &lt;code&gt;qssp-http&lt;/code&gt; or &lt;code&gt;qssp-https&lt;/code&gt; depending on whether the website is using http or https.  &lt;br&gt;
+After you have entered the URL of the search form, add &lt;code&gt;?key=***&lt;/code&gt; to the end, where &lt;code&gt;key&lt;/code&gt; is the &lt;em&gt;name&lt;/em&gt; of the input as seen in the form online. An example of a full search URL could be:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;qssp-http://google.com/?searchterm=***
+&lt;/code&gt;&lt;/pre&gt;</string>
 		<key>icon</key>
 		<string>Find</string>
 		<key>recommended</key>
