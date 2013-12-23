@@ -228,7 +228,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D426CD6015EEA09200C07B58 /* QSPlugIn.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = "Web Search Plugin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
@@ -236,7 +236,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D426CD6015EEA09200C07B58 /* QSPlugIn.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = "Web Search Plugin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
