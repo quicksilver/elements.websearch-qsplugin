@@ -75,8 +75,10 @@
 		if(!encoding)
 			encoding = NSUTF8StringEncoding;
 
-		NSString *string=[iObject stringValue];
-		[[QSWebSearchController sharedInstance] searchURL:urlString forString:string encoding:encoding];
+        for (QSObject *obj in [iObject splitObjects]) {
+            NSString *string = [obj stringValue];
+            [[QSWebSearchController sharedInstance] searchURL:urlString forString:string encoding:encoding];
+        }
 	}
 	return nil;
 }
