@@ -53,7 +53,7 @@
 																			   kCFStringEncodingUTF8);
 	
 	// Query key set in QSDefines.h - QS Code (typically ***)
-    query = [query stringByReplacing:QUERY_KEY with:searchTerm];
+    query = [query stringByReplacingOccurrencesOfString:QUERY_KEY withString:searchTerm];
 	[searchTerm release];
 	return query;
 }
@@ -67,19 +67,19 @@
 	NSString *query = [self resolvedURL:searchURL forString:string encoding:encoding];
 	NSURL *url = [NSURL URLWithString:query];
 	if ([[url scheme]isEqualToString:@"qss-http"]){
-		query = [query stringByReplacing:@"qss-http" with:@"http"];  
+		query = [query stringByReplacingOccurrencesOfString:@"qss-http" withString:@"http"];
 		[workspace openURL:[NSURL URLWithString:query]];
 	}
 	else if ([[url scheme] isEqualToString:@"qss-https"]) {
-		query = [query stringByReplacing:@"qss-https" with:@"https"];  
+		query = [query stringByReplacingOccurrencesOfString:@"qss-https" withString:@"https"];
 		[workspace openURL:[NSURL URLWithString:query]];
 	}
 	else if ([[NSArray arrayWithObjects:@"qssp-http",@"http-post", nil] containsObject:[url scheme]]){
-		[self openPOSTURL:[NSURL URLWithString:[query stringByReplacing:[url scheme] with:@"http"]]];
+		[self openPOSTURL:[NSURL URLWithString:[query stringByReplacingOccurrencesOfString:[url scheme] withString:@"http"]]];
 		return;
 	}
 	else if ([[NSArray arrayWithObjects:@"qssp-https",@"https-post",nil] containsObject:[url scheme]]) {
-		[self openPOSTURL:[NSURL URLWithString:[query stringByReplacing:[url scheme] with:@"https"]]];
+		[self openPOSTURL:[NSURL URLWithString:[query stringByReplacingOccurrencesOfString:[url scheme] withString:@"https"]]];
 		return;
 	}
 	else{
@@ -103,8 +103,8 @@
         while (component = [queryEnumerator nextObject]){
             NSArray *nameAndValue=[component componentsSeparatedByString:@"="];
             [form appendFormat:@"<input type=\"hidden\" name=\"%@\" value=\"%@\" />",
-             [[[nameAndValue objectAtIndex:0] URLDecoding ] stringByReplacing:@"+" with:@" "],
-             [[[nameAndValue objectAtIndex:1] URLDecoding ] stringByReplacing:@"+" with:@" "]];
+             [[[nameAndValue objectAtIndex:0] URLDecoding ] stringByReplacingOccurrencesOfString:@"+" withString:@" "],
+             [[[nameAndValue objectAtIndex:1] URLDecoding ] stringByReplacingOccurrencesOfString:@"+" withString:@" "]];
         }
     }
     @catch (NSException *exception) {

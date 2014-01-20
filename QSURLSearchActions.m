@@ -94,17 +94,17 @@
 		BOOL post=NO;
 		NSURL *url = [NSURL URLWithString:query];
 		if ([[url scheme]isEqualToString:@"qssp-http"]){
-			[[QSWebSearchController sharedInstance] openPOSTURL:[NSURL URLWithString:[query stringByReplacing:@"qssp-http" with:@"http"]]];  
+			[[QSWebSearchController sharedInstance] openPOSTURL:[NSURL URLWithString:[query stringByReplacingOccurrencesOfString:@"qssp-http" withString:@"http"]]];
 		//	return;
 		} else if ([[url scheme]isEqualToString:@"http-post"]){
 			NSBeep();
 			post=YES;
-			query=[query stringByReplacing:@"http-post" with:@"http"];  
+			query=[query stringByReplacingOccurrencesOfString:@"http-post" withString:@"http"];
 		//	return;
 		} else if ([[url scheme]isEqualToString:@"qss-http"]){
-			query=[query stringByReplacing:@"qss-http" with:@"http"];
+			query=[query stringByReplacingOccurrencesOfString:@"qss-http" withString:@"http"];
 		} else if ([[url scheme]isEqualToString:@"qss-https"]) {
-			query=[query stringByReplacing:@"qss-https" with:@"https"];  			
+			query=[query stringByReplacingOccurrencesOfString:@"qss-https" withString:@"https"];
 		}else{
 	}
 		
