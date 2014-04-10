@@ -56,25 +56,14 @@
 
 
 - (QSObject *)doURLSearchAction:(QSObject *)dObject{
-	// define encoding of the string
-	CFStringEncoding encoding=[[dObject objectForMeta:kQSStringEncoding]intValue];
-	if(!encoding)
-		encoding = NSUTF8StringEncoding;
-	
 	// get an NSURL
-
 	[[QSWebSearchController sharedInstance] searchURL:[dObject objectForType:QSSearchURLType]];
 	return nil;
 }
-// The encoding of the object is returning null. This will break in a future release of OS X
+
 - (QSObject *)doURLSearchForAction:(QSObject *)dObject withString:(QSObject *)iObject{
 	
 	for(NSString * urlString in [dObject arrayForType:QSSearchURLType]){
-		CFStringEncoding encoding=[[dObject objectForMeta:kQSStringEncoding]intValue];
-		// Make sure characters such as | are escaped
-		if(!encoding)
-			encoding = NSUTF8StringEncoding;
-
         for (QSObject *obj in [iObject splitObjects]) {
             NSString *string = [obj stringValue];
             if (![string length]) {
@@ -82,20 +71,16 @@
                 NSLog(@"web search attempted with no search terms");
                 continue;
             }
-            [[QSWebSearchController sharedInstance] searchURL:urlString forString:string encoding:encoding];
+            [[QSWebSearchController sharedInstance] searchURL:urlString forString:string];
         }
 	}
 	return nil;
 }
 - (QSObject *)doURLSearchForAndReturnAction:(QSObject *)dObject withString:(QSObject *)iObject{
 	for(NSString * urlString in [dObject arrayForType:QSSearchURLType]){
-		CFStringEncoding encoding=[[dObject objectForMeta:kQSStringEncoding]intValue];
-		if(!encoding)
-			encoding = NSUTF8StringEncoding;
-
 		NSString *string=[iObject stringValue];
 		
-		NSString *query=[[QSWebSearchController sharedInstance] resolvedURL:urlString forString:string encoding:encoding];
+		NSString *query=[[QSWebSearchController sharedInstance] resolvedURL:urlString forString:string];
 		BOOL post=NO;
 		NSURL *url = [NSURL URLWithString:query];
 		if ([[url scheme]isEqualToString:@"qssp-http"]){

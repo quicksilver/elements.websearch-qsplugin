@@ -34,13 +34,11 @@
 }
 
 //kQSStringEncoding
-- (NSString *)resolvedURL:(NSString *)searchURL forString:(NSString *)string  encoding:(CFStringEncoding)encoding {
+- (NSString *)resolvedURL:(NSString *)searchURL forString:(NSString *)string
+{
 	if (![string length]) {
 		// empty search
         return searchURL;
-	}
-	if(!encoding) {
-		encoding = NSUTF8StringEncoding;
 	}
 	
 	// escape URL, but not # or %
@@ -62,13 +60,14 @@
 	return query;
 }
 
-- (void)searchURL:(NSString *)searchURL forString:(NSString *)string  encoding:(CFStringEncoding)encoding {    
+- (void)searchURL:(NSString *)searchURL forString:(NSString *)string
+{
     NSPasteboard *findPboard=[NSPasteboard pasteboardWithName:NSFindPboard];
     [findPboard declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:nil];
     [findPboard setString:string forType:NSStringPboardType];
     NSWorkspace *workspace=[NSWorkspace sharedWorkspace];
 	
-	NSString *query = [self resolvedURL:searchURL forString:string encoding:encoding];
+	NSString *query = [self resolvedURL:searchURL forString:string];
 	NSURL *url = [NSURL URLWithString:query];
 	if ([[url scheme]isEqualToString:@"qss-http"]){
 		query = [query stringByReplacingOccurrencesOfString:@"qss-http" withString:@"http"];
@@ -90,10 +89,6 @@
 		NSURL *queryURL=[NSURL URLWithString:query];
 		[workspace openURL:queryURL];
 	}
-}
-
-- (void)searchURL:(NSString *)searchURL forString:(NSString *)string{    
-	[self searchURL:(NSString *)searchURL forString:(NSString *)string  encoding:(CFStringEncoding)nil];   
 }
 
 - (void)openPOSTURL:(NSURL *)searchURL{

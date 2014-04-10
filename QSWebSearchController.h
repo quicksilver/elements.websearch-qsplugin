@@ -7,8 +7,7 @@
 }
 - (IBAction)submitWebSearch:(id)sender;
 
-- (NSString *)resolvedURL:(NSString *)searchURL forString:(NSString *)string encoding:(CFStringEncoding)encoding;
-- (void)searchURL:(NSString *)searchURL forString:(NSString *)string encoding:(CFStringEncoding)encoding;
+- (NSString *)resolvedURL:(NSString *)searchURL forString:(NSString *)string;
 - (void)searchURL:(NSString *)searchURL forString:(NSString *)string;
 - (void)searchURL:(NSString *)searchURL;
 
