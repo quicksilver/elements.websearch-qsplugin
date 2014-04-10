@@ -78,6 +78,8 @@
         for (QSObject *obj in [iObject splitObjects]) {
             NSString *string = [obj stringValue];
             if (![string length]) {
+                NSBeep();
+                NSLog(@"web search attempted with no search terms");
                 continue;
             }
             [[QSWebSearchController sharedInstance] searchURL:urlString forString:string encoding:encoding];

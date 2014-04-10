@@ -37,8 +37,7 @@
 - (NSString *)resolvedURL:(NSString *)searchURL forString:(NSString *)string  encoding:(CFStringEncoding)encoding {
 	if (![string length]) {
 		// empty search
-		NSBeep();
-		NSLog(@"web search attempted with no search terms");
+        return searchURL;
 	}
 	if(!encoding) {
 		encoding = NSUTF8StringEncoding;
