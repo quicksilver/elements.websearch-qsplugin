@@ -77,6 +77,9 @@
 
         for (QSObject *obj in [iObject splitObjects]) {
             NSString *string = [obj stringValue];
+            if (![string length]) {
+                continue;
+            }
             [[QSWebSearchController sharedInstance] searchURL:urlString forString:string encoding:encoding];
         }
 	}
