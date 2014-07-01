@@ -62,15 +62,23 @@
 }
 
 - (QSObject *)doURLSearchForAction:(QSObject *)dObject withString:(QSObject *)iObject{
-	
+    NSMutableArray *searchStrings = [NSMutableArray array];
+    NSArray *rawStrings;
 	for(NSString * urlString in [dObject arrayForType:QSSearchURLType]){
-        for (QSObject *obj in [iObject splitObjects]) {
-            NSString *string = [obj stringValue];
-            if (![string length]) {
-                NSBeep();
-                NSLog(@"web search attempted with no search terms");
-                continue;
-            }
+        [searchStrings removeAllObjects];
+        rawStrings = [[iObject splitObjects] arrayByPerformingSelector:@selector(stringValue)];
+        // treat multiple lines as different searches
+        for (NSString *raw in rawStrings) {
+            [searchStrings addObjectsFromArray:[raw lines]];
+        }
+        // ignore empty lines
+        [searchStrings removeObject:@""];
+        if (![searchStrings count]) {
+            NSBeep();
+            NSLog(@"web search attempted with no search terms");
+            continue;
+        }
+        for (NSString *string in searchStrings) {
             [[QSWebSearchController sharedInstance] searchURL:urlString forString:string];
         }
 	}
