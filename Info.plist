@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.7.1</string>
+	<string>2.8.0</string>
 	<key>CFBundleVersion</key>
-	<string>247</string>
+	<string>248</string>
 	<key>NSPrincipalClass</key>
 	<string>QSWebSearchController</string>
 	<key>QSActions</key>
@@ -122,6 +122,7 @@
 Google.com ⇥ Search For... ⇥ 'Steve Jobs'&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Show Results For Search...&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;This action works in exactly the same way as the 'Search For...' action, but returns the results to Quicksilver's 1st pane in the form of links on the results page. This action is an &lt;a href="http://qsapp.com/wiki/Alternate_Actions"&gt;alternate action&lt;/a&gt; to the 'Search For...' action.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; You may use the comma trick to select multiple search URLs and/or multiple search terms. When the search text contains multiple lines of text, each line will be treated as a separate search.&lt;/p&gt;
 &lt;h3&gt;Default Web Searches (Catalog)&lt;/h3&gt;
 &lt;p&gt;The plugin contains two default web search lists (simple and advanced). The simple list is enabled by default. To view the entries in each list, go to the &lt;a href="qs://preferences#QSCatalogPrefPane"&gt;Catalog Preferences&lt;/a&gt; and click the 'Plugins' tab. You should see two entries: 'Web Searches (Full List)' and 'Web Searches (Simple)'. Enable/disable them, and expand the sidebar to see their contents.&lt;/p&gt;
 &lt;p&gt;To request the addition of a new website to either list, post on the &lt;a href="http://groups.google.com/group/blacktree-quicksilver/topics?gvc=2"&gt;support forums&lt;/a&gt;.&lt;/p&gt;

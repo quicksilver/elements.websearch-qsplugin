@@ -18,6 +18,8 @@ Google.com ⇥ Search For... ⇥ 'Steve Jobs'
 
 This action works in exactly the same way as the 'Search For...' action, but returns the results to Quicksilver's 1st pane in the form of links on the results page. This action is an [alternate action](http://qsapp.com/wiki/Alternate_Actions) to the 'Search For...' action.
 
+**NOTE:** You may use the comma trick to select multiple search URLs and/or multiple search terms. When the search text contains multiple lines of text, each line will be treated as a separate search.
+
 ### Default Web Searches (Catalog)
 
 The plugin contains two default web search lists (simple and advanced). The simple list is enabled by default. To view the entries in each list, go to the [Catalog Preferences](qs://preferences#QSCatalogPrefPane) and click the 'Plugins' tab. You should see two entries: 'Web Searches (Full List)' and 'Web Searches (Simple)'. Enable/disable them, and expand the sidebar to see their contents.
