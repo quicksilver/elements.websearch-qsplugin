@@ -68,7 +68,7 @@
 			<key>name</key>
 			<string>Search For…</string>
 			<key>precedence</key>
-			<string>4.000000</string>
+			<real>4.0</real>
 			<key>validatesObjects</key>
 			<true/>
 		</dict>
