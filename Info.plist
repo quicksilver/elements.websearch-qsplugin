@@ -195,6 +195,16 @@ After you have entered the URL of the search form, add &lt;code&gt;?key=***&lt;/
 			<key>QSWebSearchSource</key>
 			<string>QSWebSearchSource</string>
 		</dict>
+		<key>QSTypeDefinitions</key>
+		<dict>
+			<key>qs.url.search</key>
+			<dict>
+				<key>icon</key>
+				<string>Find</string>
+				<key>name</key>
+				<string>Search URLs</string>
+			</dict>
+		</dict>
 	</dict>
 	<key>QSRequirements</key>
 	<dict>
