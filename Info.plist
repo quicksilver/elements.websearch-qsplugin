@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.7.1</string>
+	<string>2.7.2</string>
 	<key>CFBundleVersion</key>
-	<string>247</string>
+	<string>248</string>
 	<key>NSPrincipalClass</key>
 	<string>QSWebSearchController</string>
 	<key>QSActions</key>
@@ -67,8 +67,8 @@
 			<string>Find</string>
 			<key>name</key>
 			<string>Search For…</string>
-			<key>rankModification</key>
-			<string>4.000000</string>
+			<key>precedence</key>
+			<real>4.0</real>
 			<key>validatesObjects</key>
 			<true/>
 		</dict>
@@ -194,6 +194,16 @@ After you have entered the URL of the search form, add &lt;code&gt;?key=***&lt;/
 		<dict>
 			<key>QSWebSearchSource</key>
 			<string>QSWebSearchSource</string>
+		</dict>
+		<key>QSTypeDefinitions</key>
+		<dict>
+			<key>qs.url.search</key>
+			<dict>
+				<key>icon</key>
+				<string>Find</string>
+				<key>name</key>
+				<string>Search URLs</string>
+			</dict>
 		</dict>
 	</dict>
 	<key>QSRequirements</key>
