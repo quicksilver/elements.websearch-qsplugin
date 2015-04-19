@@ -209,7 +209,9 @@ After you have entered the URL of the search form, add &lt;code&gt;?key=***&lt;/
 	<key>QSRequirements</key>
 	<dict>
 		<key>version</key>
-		<string>4001</string>
+		<string>4005</string>
+		<key>osRequired</key>
+		<string>10.9</string>
 	</dict>
 </dict>
 </plist>
