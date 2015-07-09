@@ -203,6 +203,8 @@ After you have entered the URL of the search form, add &lt;code&gt;?key=***&lt;/
 				<string>Find</string>
 				<key>name</key>
 				<string>Search URLs</string>
+				<key>smartspace</key>
+				<integer>3</integer>
 			</dict>
 		</dict>
 	</dict>
