@@ -210,10 +210,10 @@ After you have entered the URL of the search form, add &lt;code&gt;?key=***&lt;/
 	</dict>
 	<key>QSRequirements</key>
 	<dict>
-		<key>version</key>
-		<string>4005</string>
 		<key>osRequired</key>
 		<string>10.9</string>
+		<key>version</key>
+		<string>4012</string>
 	</dict>
 </dict>
 </plist>

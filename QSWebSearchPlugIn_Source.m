@@ -98,7 +98,7 @@ static NSMenu *encodingMenu=nil;
 - (void)objectDidEndEditing:(id)editor {
 //	NSLog(@"edited %@",editor);
 	[self updateCurrentEntryModificationDate];
-	[[NSNotificationCenter defaultCenter] postNotificationName:QSCatalogEntryChanged object:[self currentEntry]];
+	[[NSNotificationCenter defaultCenter] postNotificationName:QSCatalogEntryChangedNotification object:[self currentEntry]];
 	//[QSLib scanItem:[self currentEntry] force:YES];
 }
 
