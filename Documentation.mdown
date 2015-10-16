@@ -42,3 +42,7 @@ After you have entered the URL of the search form, add `?key=***` to the end, wh
 ```
 qssp-http://google.com/?searchterm=***
 ```
+
+### Credits
+
+Favicons images for web search objects within Quicksilver are provided by [Grabicon](https://grabicon.com)
