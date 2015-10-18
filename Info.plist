@@ -158,7 +158,7 @@ After you have entered the URL of the search form, add &lt;code&gt;?key=***&lt;/
 				<key>contentSuffix</key>
 				<string>&lt;div class="QSWebSearchContentEnd"&gt;&lt;/div&gt;</string>
 				<key>path</key>
-				<string>http://qs0.qsapp.com/plugin-data/web-search-list.php?type=simple</string>
+				<string>https://qs0.qsapp.com/plugin-data/web-search-list.php?type=simple</string>
 			</dict>
 			<key>source</key>
 			<string>QSWebSource</string>
@@ -177,7 +177,7 @@ After you have entered the URL of the search form, add &lt;code&gt;?key=***&lt;/
 				<key>contentSuffix</key>
 				<string>&lt;div class="QSWebSearchContentEnd"&gt;&lt;/div&gt;</string>
 				<key>path</key>
-				<string>http://qs0.qsapp.com/plugin-data/web-search-list.php?type=full</string>
+				<string>https://qs0.qsapp.com/plugin-data/web-search-list.php?type=full</string>
 			</dict>
 			<key>source</key>
 			<string>QSWebSource</string>
