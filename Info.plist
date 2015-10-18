@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.7.3</string>
+	<string>2.7.4</string>
 	<key>CFBundleVersion</key>
-	<string>24E</string>
+	<string>24F</string>
 	<key>NSPrincipalClass</key>
 	<string>QSWebSearchController</string>
 	<key>QSActions</key>
