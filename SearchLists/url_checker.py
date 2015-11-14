@@ -6,10 +6,12 @@ URL_re = re.compile(r"""(?:href=")(.*?)(?:">)""")
 @asyncio.coroutine
 def get_page(url):
 	try:
-		yield from aiohttp.get(url)
+		r = yield from aiohttp.get(url)
+		yield from r.release()
 		if url.startswith("http://"):
 			url = url.replace("http://", "https://")
-			yield from aiohttp.get(url)
+			r = yield from aiohttp.get(url)
+			yield from r.release()
 			print("Switch %s to HTTPS" % url)
 	except Exception as e:
 		print("%s: %s" % (url, e))
