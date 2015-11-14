@@ -91,31 +91,31 @@ echo ' <div class="QSWebSearchContentStart"></div>
         </h2>
         <ul>
             <li>
-                <a href="qss-http://www.google.'.$tld.'/search?q=***&ie=UTF-8&oe=UTF-8">Google ('.$country.')</a>
+                <a href="qss-https://www.google.'.$tld.'/search?q=***&ie=UTF-8&oe=UTF-8">Google ('.$country.')</a>
             </li>
             <li>
                 <a href="qss-https://mail.google.com/mail/?search=query&amp;view=tl&amp;start=0&amp;init=1&amp;fs=1&amp;q=***">Gmail</a>
             </li>
             <li>
-                <a href="qss-http://maps.google.'.$tld.'/maps?q=***">Google Maps ('.$country.')</a>
+                <a href="qss-https://maps.google.'.$tld.'/maps?q=***">Google Maps ('.$country.')</a>
             </li>
             <li>
-                <a href="qss-http://news.google.'.$tld.'/news?hl=en&amp;q=***">Google News ('.$country.')</a>
+                <a href="qss-https://news.google.'.$tld.'/news?hl=en&amp;q=***">Google News ('.$country.')</a>
             </li>
             <li>
-                <a href="qss-http://books.google.'.$tld.'/books?q=***">Google Books ('.$country.')</a>
+                <a href="qss-https://books.google.'.$tld.'/books?q=***">Google Books ('.$country.')</a>
             </li>
             <li>
-                <a href="qss-http://images.google.'.$tld.'/images?hl=en&amp;q=***">Google Image ('.$country.')</a>
+                <a href="qss-https://images.google.'.$tld.'/images?hl=en&amp;q=***">Google Image ('.$country.')</a>
             </li>
             <li>
-                <a href="qss-http://scholar.google.'.$tld.'/scholar?hl=en&amp;q=***">Google Scholar</a>
+                <a href="qss-https://scholar.google.'.$tld.'/scholar?hl=en&amp;q=***">Google Scholar</a>
             </li>
 
         </ul>
 	<ul>
 		<li>
-			<a href="qss-http://maps.apple.com/?q=***">Apple Maps</a>
+			<a href="qss-https://maps.apple.com/?q=***">Apple Maps</a>
 		</li>
 	</ul>
         <h2 id="other-search-engines">
@@ -123,13 +123,13 @@ echo ' <div class="QSWebSearchContentStart"></div>
         </h2>
         <ul>
             <li>
-                <a href="qss-http://www.bing.com/search?q=***&cc='.strtolower($country).'">Bing ('.$country.')</a>
+                <a href="qss-https://www.bing.com/search?q=***&cc='.strtolower($country).'">Bing ('.$country.')</a>
             </li>
             <li>
-                <a href="qss-http://'.strtolower($country).'.search.yahoo.com/search;_ylt=A0oGkzSwTbtNLNYAMyRKBQx.;_ylc=X1MDMjE0MjQ3ODk0OARfcgMyBGZyA3lmcC10LTcwMgRuX2dwcwMwBG9yaWdpbgNzeWMEcXVlcnkDKioqBHNhbwMw?p=***&fr=yfp-t-702&fr2=sfp&iscqry=">Yahoo ('.$country.')</a>
+                <a href="qss-https://'.strtolower($country).'.search.yahoo.com/search;_ylt=A0oGkzSwTbtNLNYAMyRKBQx.;_ylc=X1MDMjE0MjQ3ODk0OARfcgMyBGZyA3lmcC10LTcwMgRuX2dwcwMwBG9yaWdpbgNzeWMEcXVlcnkDKioqBHNhbwMw?p=***&fr=yfp-t-702&fr2=sfp&iscqry=">Yahoo ('.$country.')</a>
             </li>
             <li>
-                <a href="qss-http://www.wolframalpha.com/input/?i=***">Wolfram|Alpha</a>
+                <a href="qss-https://www.wolframalpha.com/input/?i=***">Wolfram|Alpha</a>
             </li>
         </ul>
         <h2 id="social">
@@ -137,10 +137,10 @@ echo ' <div class="QSWebSearchContentStart"></div>
         </h2>
         <ul>
             <li>
-                <a href="qss-http://twitter.com/?lang='.$langvar.'#!/search/***">Twitter</a>
+                <a href="qss-https://twitter.com/?lang='.$langvar.'#!/search/***">Twitter</a>
             </li>
             <li>
-                <a href="qss-http://hs.facebook.com/s.php?q=***&amp;n=-1">Facebook</a>
+                <a href="qss-https://hs.facebook.com/s.php?q=***&amp;n=-1">Facebook</a>
             </li>
         </ul>
    
@@ -149,7 +149,7 @@ echo ' <div class="QSWebSearchContentStart"></div>
         </h3>
         <ul>
             <li>
-                <a href="qss-http://www.youtube.com/results?gl='.$country.'&hl='.$langvar.'&search_type=search_videos&amp;search_sort=relevance&amp;search_query=***&amp;search=Search">YouTube</a>
+                <a href="qss-https://www.youtube.com/results?gl='.$country.'&hl='.$langvar.'&search_type=search_videos&amp;search_sort=relevance&amp;search_query=***&amp;search=Search">YouTube</a>
             </li>
         </ul>
         <h3 id="images">
@@ -157,7 +157,7 @@ echo ' <div class="QSWebSearchContentStart"></div>
         </h3>
         <ul>
             <li>
-                <a href="qss-http://www.flickr.com/photos/search/text:***">Flickr</a>
+                <a href="qss-https://www.flickr.com/photos/search/text:***">Flickr</a>
             </li>
 </ul>
         <h3 id="movies">
@@ -167,15 +167,15 @@ echo ' <div class="QSWebSearchContentStart"></div>
             <li>';
 // IMDb only has French, German, Italian, Spanish, Portugese
 if($tld == "de" || $tld == "it" || $tld == "es" || $tld == "pt" || $tld == "fr") {
-	echo '<a href="qss-http://www.imdb.'.$tld.'/find?q=***">IMDb ('.$country.')</a>';
+	echo '<a href="qss-https://www.imdb.'.$tld.'/find?q=***">IMDb ('.$country.')</a>';
 }
 else {
-	 echo '<a href="qss-http://www.imdb.com/find?q=***">IMDb</a>';
+	 echo '<a href="qss-https://www.imdb.com/find?q=***">IMDb</a>';
 	}
 	echo '
             </li>
             <li>
-                <a href="qss-http://www.rottentomatoes.'.$tld.'/search/?search=***&sitesearch=rt">Rotten Tomatoes</a>
+                <a href="qss-https://www.rottentomatoes.'.$tld.'/search/?search=***&sitesearch=rt">Rotten Tomatoes</a>
             </li>
         </ul>
         <h3 id="music">
@@ -183,7 +183,7 @@ else {
         </h3>
         <ul>
             <li>
-                <a href="qss-http://www.last.fm/search?q=***&form=ac&setlang='.$langvar.'">Last.FM</a>
+                <a href="qss-https://www.last.fm/search?q=***&form=ac&setlang='.$langvar.'">Last.FM</a>
             </li>
         </ul>
         <h2 id="mac">
@@ -191,13 +191,13 @@ else {
         </h2>
         <ul>
             <li>
-                <a href="http://stackoverflow.com/search?q=***">Stack Overflow</a>
+                <a href="https://stackoverflow.com/search?q=***">Stack Overflow</a>
             </li>
             <li>
                 <a href="qss-http://hints.macworld.com/search.php?query=***&type=stories&mode=search&keyType=all">Mac OS X Hints</a>
             </li>
             <li>
-                <a href="qss-http://www.macupdate.com/search/advanced/?qk=***&modpreset=&mm=2003-01&mx=2012-07&title=&titlenot=&desc=&descnot=&dev=&devnot=&os=mac&rating=all">MacUpdate</a>
+                <a href="qss-https://www.macupdate.com/find/mac/***">MacUpdate</a>
             </li>
         </ul>
         <h2 id="reference">
@@ -205,10 +205,10 @@ else {
         </h2>
         <ul>
             <li>
-                <a href="qss-http://'.$langvar.'.wikipedia.org/wiki/Special:Search?search=***&amp;go=Gon">Wikipedia</a>
+                <a href="qss-https://'.$langvar.'.wikipedia.org/wiki/Special:Search?search=***&amp;go=Gon">Wikipedia</a>
             </li>
 <li>
-<a href="qss-http://'.$langvar.'.wiktionary.org/wiki/Special:Search?search=***&go=Go">Wiktionary</a>
+<a href="qss-https://'.$langvar.'.wiktionary.org/wiki/Special:Search?search=***&go=Go">Wiktionary</a>
 </li>
         </ul>
         <h2 id="shopping">
@@ -217,10 +217,10 @@ else {
         <ul>
 
             <li>
-                <a href="qss-http://www.amazon.'.$tld.'/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=***">Amazon ('.$country.')</a>
+                <a href="qss-https://www.amazon.'.$tld.'/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=***">Amazon ('.$country.')</a>
             </li>
             <li>
-                <a href="qss-http://search.ebay.'.$tld.'/search/search.dll?query=***">eBay ('.$country.')</a>
+                <a href="qss-https://search.ebay.'.$tld.'/search/search.dll?query=***">eBay ('.$country.')</a>
             </li>
         </ul>
        '; /* <h2 id="weather">
@@ -245,10 +245,10 @@ echo '
         </h2>
         <ul>
 <li>
-   <a href="qss-http://bit.ly/?u=***">Shorten URL (Bit.ly)</a>
+   <a href="qssp-https://bit.ly/&url=***">Shorten URL (Bit.ly)</a>
 </li>
             <li>
-                <a href="qss-http://64.233.167.104/search?q=cache:***">View URL in Google Cache</a>
+                <a href="qss-https://64.233.167.104/search?q=cache:***">View URL in Google Cache</a>
             </li>
         </ul>
         <div class="QSWebSearchContentEnd"></div>';
