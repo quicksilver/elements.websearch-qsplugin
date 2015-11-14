@@ -1,16 +1,25 @@
 import re
-import ssl, urllib2
+import aiohttp, asyncio
 
 URL_re = re.compile(r"""(?:href=")(.*?)(?:">)""")
+
+@asyncio.coroutine
+def get_page(url):
+	try:
+		yield from aiohttp.get(url)
+		if url.startswith("http://"):
+			url = url.replace("http://", "https://")
+			yield from aiohttp.get(url)
+			print("Switch %s to HTTPS" % url)
+	except Exception as e:
+		print("%s: %s" % (url, e))
 
 def main():
 	with open("web-search-list-full.html", "r") as f:
 		urls = URL_re.findall(f.read())
-	for url in urls:
-		try:
-			urllib2.urlopen(url.replace("***", "abc"))
-		except (ssl.CertificateError, urllib2.URLError) as e:
-			print "Could not open %s:\n%s" % (url, e)
+	
+	loop = asyncio.get_event_loop()
+	loop.run_until_complete(asyncio.wait([get_page(u) for u in urls]))
 
 if __name__ == "__main__":
 	main()
