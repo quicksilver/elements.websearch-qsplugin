@@ -131,6 +131,9 @@ echo ' <div class="QSWebSearchContentStart"></div>
             <li>
                 <a href="qss-https://www.wolframalpha.com/input/?i=***">Wolfram|Alpha</a>
             </li>
+            <li>
+                <a href="qss-https://duckduckgo.com/?q=***>DuckDuckGo</a>
+            </li>
         </ul>
         <h2 id="social">
             Social
@@ -244,13 +247,13 @@ echo '
             Web Services
         </h2>
         <ul>
-<li>
-   <a href="qssp-https://bit.ly/&url=***">Shorten URL (Bit.ly)</a>
-</li>
-            <li>
-                <a href="qss-https://64.233.167.104/search?q=cache:***">View URL in Google Cache</a>
-            </li>
-        </ul>
+    <li>
+        <a href="qssp-https://bit.ly/&url=***">Shorten URL (Bit.ly)</a>
+    </li>
+    <li>
+        <a href="qss-https://64.233.167.104/search?q=cache:***">View URL in Google Cache</a>
+    </li>
+</ul>
         <div class="QSWebSearchContentEnd"></div>';
 
 ?>
