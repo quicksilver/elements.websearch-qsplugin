@@ -30,6 +30,8 @@
 			<string>QSURLSearchActions</string>
 			<key>actionSelector</key>
 			<string>doURLSearchForAction:withString:</string>
+			<key>commandFormat</key>
+			<string>Search for “%@” using %@</string>
 			<key>description</key>
 			<string>Find text on a website</string>
 			<key>directTypes</key>
@@ -57,6 +59,8 @@
 			<string>doURLSearchForAction:withString:</string>
 			<key>alternateAction</key>
 			<string>QSURLSearchForAndReturnAction</string>
+			<key>commandFormat</key>
+			<string>Search for “%2$@” using %1$@</string>
 			<key>description</key>
 			<string>Search for text on a web site</string>
 			<key>directTypes</key>
@@ -78,6 +82,8 @@
 			<string>QSURLSearchActions</string>
 			<key>actionSelector</key>
 			<string>doURLSearchForAndReturnAction:withString:</string>
+			<key>commandFormat</key>
+			<string>Get search results for “%2$@” using %1$@</string>
 			<key>description</key>
 			<string>Returns the results of a query directly to the command window</string>
 			<key>directTypes</key>
