@@ -21,8 +21,7 @@
 - (NSArray *)validIndirectObjectsForAction:(NSString *)action directObject:(QSObject *)dObject{
 	// if it's a 'find with...' action, only return search URLs
 	if ([action isEqualToString:kURLFindWithAction]) {
-        // change to scoredArrayForType: when quicksilver/Quicksilver#1162 is merged
-        return [QSLib scoredArrayForString:nil inSet:[QSLib arrayForType:QSSearchURLType] mnemonicsOnly:YES];
+		return [QSLib scoredArrayForType:QSSearchURLType];
 	}
 	// if it's a 'search for...' action, return a text bot for text
 	else if ([action isEqualToString:kURLSearchForAction] || [action isEqualToString:kURLSearchForAndReturnAction]){
