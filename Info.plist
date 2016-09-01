@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.7.4</string>
+	<string>2.8.0</string>
 	<key>CFBundleVersion</key>
-	<string>24F</string>
+	<string>250</string>
 	<key>NSPrincipalClass</key>
 	<string>QSWebSearchController</string>
 	<key>QSActions</key>
@@ -142,7 +142,10 @@ Google.com ⇥ Search For... ⇥ 'Steve Jobs'&lt;/p&gt;
 From the sidebar, add a new URL, with a prefix of either &lt;code&gt;qssp-http&lt;/code&gt; or &lt;code&gt;qssp-https&lt;/code&gt; depending on whether the website is using http or https.  &lt;br&gt;
 After you have entered the URL of the search form, add &lt;code&gt;?key=***&lt;/code&gt; to the end, where &lt;code&gt;key&lt;/code&gt; is the &lt;em&gt;name&lt;/em&gt; of the input as seen in the form online. An example of a full search URL could be:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;qssp-http://google.com/?searchterm=***
-&lt;/code&gt;&lt;/pre&gt;</string>
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Credits&lt;/h3&gt;
+&lt;p&gt;Favicons images for web search objects within Quicksilver are provided by &lt;a href="https://grabicon.com"&gt;Grabicon&lt;/a&gt;&lt;/p&gt;</string>
 		<key>icon</key>
 		<string>Find</string>
 		<key>recommended</key>
