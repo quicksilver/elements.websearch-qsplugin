@@ -45,4 +45,4 @@ qssp-http://google.com/?searchterm=***
 
 ### Credits
 
-Favicons images for web search objects within Quicksilver are provided by [Grabicon](https://grabicon.com)
+Favicons images for web search objects within Quicksilver are provided by [DuckDuckGo](https://duckduckgo.com/)
