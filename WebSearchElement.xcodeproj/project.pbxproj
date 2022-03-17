@@ -8,17 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		8D1AC9700486D14A00FE50C9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD92D38A0106425D02CA0E72 /* Cocoa.framework */; };
+		CDE41F8A27E2C30F006A50BE /* QSWebSearchSource.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE41F8927E2C30E006A50BE /* QSWebSearchSource.xib */; };
 		E1812CB5076BDBFA00A8EFA8 /* QSWebSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1812CB3076BDBFA00A8EFA8 /* QSWebSearchController.m */; };
 		E1812D47076BDEE700A8EFA8 /* QSURLSearchActions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1812D45076BDEE700A8EFA8 /* QSURLSearchActions.m */; };
 		E1B32EA1078CCD0A0076DA42 /* QSWebSearchPlugIn_Source.h in Resources */ = {isa = PBXBuildFile; fileRef = E1B32E9F078CCD0A0076DA42 /* QSWebSearchPlugIn_Source.h */; };
 		E1B32EA2078CCD0A0076DA42 /* QSWebSearchPlugIn_Source.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B32EA0078CCD0A0076DA42 /* QSWebSearchPlugIn_Source.m */; };
-		E1B332FF078CD6980076DA42 /* QSWebSearchSource.nib in Resources */ = {isa = PBXBuildFile; fileRef = E1B332FE078CD6980076DA42 /* QSWebSearchSource.nib */; };
 		E1F2DC1F078D977D007B9046 /* QSObjectSource.name.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1F2DC1D078D977D007B9046 /* QSObjectSource.name.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8D1AC9730486D14A00FE50C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D1AC9740486D14A00FE50C9 /* Web Search Plugin.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Web Search Plugin.qsplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1AC9740486D14A00FE50C9 /* Web Search Plugin.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Web Search Plugin.qsplugin"; path = "Web Search Plugin.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDE41F8927E2C30E006A50BE /* QSWebSearchSource.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSWebSearchSource.xib; sourceTree = "<group>"; };
 		D426CD5D15EEA09200C07B58 /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		D426CD5E15EEA09200C07B58 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		D426CD5F15EEA09200C07B58 /* Developer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Developer.xcconfig; sourceTree = "<group>"; };
@@ -32,7 +33,6 @@
 		E1812D45076BDEE700A8EFA8 /* QSURLSearchActions.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = QSURLSearchActions.m; sourceTree = "<group>"; };
 		E1B32E9F078CCD0A0076DA42 /* QSWebSearchPlugIn_Source.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = QSWebSearchPlugIn_Source.h; sourceTree = "<group>"; };
 		E1B32EA0078CCD0A0076DA42 /* QSWebSearchPlugIn_Source.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = QSWebSearchPlugIn_Source.m; sourceTree = "<group>"; };
-		E1B332FE078CD6980076DA42 /* QSWebSearchSource.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = QSWebSearchSource.nib; sourceTree = "<group>"; };
 		E1F2DC1E078D977D007B9046 /* English */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; name = English; path = English.lproj/QSObjectSource.name.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,8 +63,8 @@
 		0259C582FE90428111CA0C5A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CDE41F8927E2C30E006A50BE /* QSWebSearchSource.xib */,
 				E1F2DC1D078D977D007B9046 /* QSObjectSource.name.strings */,
-				E1B332FE078CD6980076DA42 /* QSWebSearchSource.nib */,
 				8D1AC9730486D14A00FE50C9 /* Info.plist */,
 			);
 			name = Resources;
@@ -172,8 +172,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1B32EA1078CCD0A0076DA42 /* QSWebSearchPlugIn_Source.h in Resources */,
-				E1B332FF078CD6980076DA42 /* QSWebSearchSource.nib in Resources */,
 				E1F2DC1F078D977D007B9046 /* QSObjectSource.name.strings in Resources */,
+				CDE41F8A27E2C30F006A50BE /* QSWebSearchSource.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
