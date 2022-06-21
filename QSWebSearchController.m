@@ -6,7 +6,11 @@
 + (id)sharedInstance {
     static id _sharedInstance;
     if (!_sharedInstance) {
-		_sharedInstance = [[[self class] allocWithZone:[self zone]] init];
+        id __block t = nil;
+        QSGCDMainSync(^{
+            t = [[[self class] allocWithZone:[self zone]] init];
+        });
+        _sharedInstance = t;
 	}
     return _sharedInstance;  
 }
@@ -14,7 +18,7 @@
 - (id)init {
     self = [super init]; // initWithWindowNibName:@"WebSearch"]; 
     if (self) {
-		[[self window] setLevel:NSFloatingWindowLevel];
+            [[self window] setLevel:NSFloatingWindowLevel];
     }
     return self;
 }

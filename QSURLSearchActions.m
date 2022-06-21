@@ -76,37 +76,42 @@
 	return nil;
 }
 - (QSObject *)doURLSearchForAndReturnAction:(QSObject *)dObject withString:(QSObject *)iObject{
-	for(NSString * urlString in [dObject arrayForType:QSSearchURLType]){
-		NSString *string=[iObject stringValue];
-		
-		NSString *query=[[QSWebSearchController sharedInstance] resolvedURL:urlString forString:string];
-		BOOL post=NO;
-		NSURL *url = [NSURL URLWithString:query];
-		if ([[url scheme]isEqualToString:@"qssp-http"]){
-			[[QSWebSearchController sharedInstance] openPOSTURL:[NSURL URLWithString:[query stringByReplacingOccurrencesOfString:@"qssp-http" withString:@"http"]]];
-		//	return;
-		} else if ([[url scheme]isEqualToString:@"http-post"]){
-			NSBeep();
-			post=YES;
-			query=[query stringByReplacingOccurrencesOfString:@"http-post" withString:@"http"];
-		//	return;
-		} else if ([[url scheme]isEqualToString:@"qss-http"]){
-			query=[query stringByReplacingOccurrencesOfString:@"qss-http" withString:@"http"];
-		} else if ([[url scheme]isEqualToString:@"qss-https"]) {
-			query=[query stringByReplacingOccurrencesOfString:@"qss-https" withString:@"https"];
-		}else{
-	}
-		
-		
-		id <QSParser> parser=[QSReg instanceForKey:@"html" inTable:@"QSURLTypeParsers"];
-		//NSLog(@" %@ %@",type,parser);
-		
-		[QSTasks updateTask:@"DownloadPage" status:@"Downloading Page" progress:0];
-		NSMutableArray *children = [[parser objectsFromURL:[NSURL URLWithString:query] withSettings:nil] mutableCopy];
-		[QSTasks removeTask:@"DownloadPage"];
-		
-		[[QSReg preferredCommandInterface] showArray:children];
-	}
+    QSWebSearchController  *c = [QSWebSearchController sharedInstance];
+    
+    QSGCDAsync(^{
+        for(NSString * urlString in [dObject arrayForType:QSSearchURLType]){
+            NSString *string=[iObject stringValue];
+            
+            NSString *query=[c resolvedURL:urlString forString:string];
+            BOOL post=NO;
+            NSURL *url = [NSURL URLWithString:query];
+            if ([[url scheme]isEqualToString:@"qssp-http"]){
+                [c openPOSTURL:[NSURL URLWithString:[query stringByReplacingOccurrencesOfString:@"qssp-http" withString:@"http"]]];
+            //    return;
+            } else if ([[url scheme]isEqualToString:@"http-post"]){
+                NSBeep();
+                post=YES;
+                query=[query stringByReplacingOccurrencesOfString:@"http-post" withString:@"http"];
+            //    return;
+            } else if ([[url scheme]isEqualToString:@"qss-http"]){
+                query=[query stringByReplacingOccurrencesOfString:@"qss-http" withString:@"http"];
+            } else if ([[url scheme]isEqualToString:@"qss-https"]) {
+                query=[query stringByReplacingOccurrencesOfString:@"qss-https" withString:@"https"];
+            }else{
+        }
+            
+            
+            id <QSParser> parser=[QSReg instanceForKey:@"html" inTable:@"QSURLTypeParsers"];
+            //NSLog(@" %@ %@",type,parser);
+            
+            [QSTasks updateTask:@"DownloadPage" status:@"Downloading Page" progress:0];
+            NSMutableArray *children = [[parser objectsFromURL:[NSURL URLWithString:query] withSettings:nil] mutableCopy];
+            [QSTasks removeTask:@"DownloadPage"];
+            QSGCDMainAsync(^{
+                [[QSReg preferredCommandInterface] showArray:children];
+            });
+        }
+    });
 
 	return nil;
 }
